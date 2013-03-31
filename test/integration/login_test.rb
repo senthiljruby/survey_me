@@ -16,7 +16,7 @@ class LoginTest < ActionDispatch::IntegrationTest
     fill_in 'user_screen_name', :with => @admin.screen_name
     fill_in 'user_password', :with => 'admin234'
     click_button 'Sign in'
-    find('#flash_alert:contains("Invalid email or password")')
+    find('#flash_alert:contains("Invalid Screen Name or password.")')
   end
 
   test 'valid login' do
