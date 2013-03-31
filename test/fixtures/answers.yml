@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+answer_one:
+  content: Popcorn
+  question_id: 1
+
+answer_two:
+  content: Chips
+  question_id: 1
+
+answer_three:
+  content: Biscuits
+  question_id: 1

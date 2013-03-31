@@ -1,0 +1,21 @@
+<table class="table table-bordered table-striped">
+ <thead>
+    <tr>
+      <th>Survey Taker</th>
+      <th>Question</th>
+      <th>Survey Taker's answer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @surveys.each do |survey| %>
+      <% survey.responses.each do |response| %>
+        <tr>
+          <td><%= response.user.screen_name %></td>
+          <td><%= response.question.content %></td>
+          <td><%= response.user_answer %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @surveys %>

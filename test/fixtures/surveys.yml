@@ -1,0 +1,6 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+survey_one:
+  name: Employee Survey
+  user: admin
+  question_type: Essay

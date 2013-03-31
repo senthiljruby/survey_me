@@ -1,0 +1,11 @@
+<div style="float:right; padding:10px;">
+  Welcome
+  <% unless current_user %>
+      <strong>Guest !!!</strong>
+      <a href="/users/sign_up">Register</a> / 
+      <a href="/users/sign_in">Login</a>
+    <% else %>
+      <strong><%= current_user.screen_name %> !!!</strong>
+      <a href="/users/sign_out">Logout</a>
+    <% end %>
+</div>

@@ -1,0 +1,5 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+question_one:
+  content: which of the following have you purchased in the past 3 months
+  survey_id: 1

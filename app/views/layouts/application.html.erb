@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SurveyMe</title>
+    <%= stylesheet_link_tag  "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <%= render "layouts/nav_text" %>
+      <div style="clear:both;"></div>
+      <%= render "layouts/main_menu" %>
+      <hr>
+      <div class="content">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :class => "box inline alert", :id => "flash_#{name}" if msg.is_a?(String) %>
+        <%- end -%>
+        <%= yield %>
+      </div>
+      <hr>
+      <%= render "layouts/footer" %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<fieldset>
+  <%= f.label :content, "Question:" %>
+  <% if @question_type == "Essay" %>
+  	<%= f.text_area :content, :rows => '10', :class => "input-block-level"  %><br/>	
+  <% elsif @question_type == "Numeric" %>
+    <%= f.text_field :content, :class => "input-block-level"  %><br/>
+  <% else %>
+    <%= f.text_field :content, :id => "question_name", "data-date-format" => "mm/dd/yy", :value=>"02/16/12", :class => "span2 question_name" %>  
+  <% end %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Remove Question", "#", class: "btn btn-mini btn-success remove_fields" %>
+		
+	<%= f.fields_for :answers do |builder| %>
+		<%= render 'answer_fields', f: builder %>
+	<% end %>
+	<%= link_to_add_fields "Add Answer", f, :answers %><br/><br/>
+</fieldset> 
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('.question_name').datepicker();
+  })
+</script>

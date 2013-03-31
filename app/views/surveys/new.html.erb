@@ -1,0 +1,16 @@
+<% unless @question_type.blank? %>
+  <%= render 'form' %>
+<% else %>
+<%= form_tag(new_survey_path, :html => {:class => "form-signin"}) %>
+  <h2 class="form-signin-heading"><%= @survey.new_record? ? 'New' : 'Edit' %> Survey</h2> 
+  <div>
+    <%= label :survey, :question_type, "Question Type" %>
+    <%= select_tag :question_type, options_for_select(Question::QUESTION_TYPE), :class => "input-block-level"  %>
+  </div>  
+  <br/><br/>
+  <div class="actions">
+    <%= submit_tag "Select Survey", :class => "btn btn-primary"%>
+  </div>
+<% end %>
+
+<%= link_to 'Back', surveys_path %>
