@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
   has_many :responses
 
   validates :screen_name, :presence => true
+  validates :screen_name, :uniqueness => true
 
   def admin?
     return true if self.admin == true 

@@ -30,4 +30,22 @@ class LoginTest < ActionDispatch::IntegrationTest
     click_button 'Sign in'
     find('#flash_notice:contains("Signed in successfully.")')
   end
+
+  test 'logout' do
+    visit root_path
+    within('.container') do
+       click_link 'Login'
+    end
+    find('.form-signin-heading:contains("Login")')
+    fill_in 'user_screen_name', :with => @admin.screen_name
+    fill_in 'user_password', :with => 'admin123'
+    click_button 'Sign in'
+    find('#flash_notice:contains("Signed in successfully.")')
+    visit root_path
+    within('.container') do
+       click_link 'Logout'
+    end
+    find('#flash_notice:contains("Signed out successfully.")')
+
+  end
 end
