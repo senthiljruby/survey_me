@@ -28,6 +28,8 @@ GEM
     activesupport (3.2.10)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    annotate (2.5.0)
+      rake
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
@@ -66,6 +68,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    ffi (1.6.0)
     ffi (1.6.0-x86-mingw32)
     hike (1.2.1)
     i18n (0.6.4)
@@ -87,8 +90,10 @@ GEM
     multi_json (1.7.2)
     mysql2 (0.3.11)
     mysql2 (0.3.11-x86-mingw32)
+    nokogiri (1.5.9)
     nokogiri (1.5.9-x86-mingw32)
     orm_adapter (0.4.0)
+    pg (0.15.0-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -164,6 +169,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  annotate
   better_errors
   binding_of_caller
   capybara (~> 2.0.2)
@@ -174,6 +180,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   mysql2
+  pg
   rails (= 3.2.10)
   sass-rails (~> 3.2.3)
   simplecov (~> 0.7.1)

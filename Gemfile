@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.10'
 gem 'mysql2'
 gem 'pg'
+gem 'annotate'
 
 # User Authentication Engine
 gem 'devise'
