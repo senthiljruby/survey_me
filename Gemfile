@@ -23,13 +23,13 @@ group :test do
   gem 'simplecov', '~> 0.7.1', :require => false
 end
 
-gem "twitter-bootstrap-rails"
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem "therubyracer"
-  gem "less-rails"
   gem 'uglifier', '>= 1.0.3'
 end
 
