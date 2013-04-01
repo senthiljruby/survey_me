@@ -19,4 +19,12 @@ class Response < ActiveRecord::Base
   belongs_to :question
 
   validates :user_answer, :presence => true
+  validates :user_answer, :numericality => {:only_integer => true}, :if => :should_confirm_only_numeric?
+
+  self.per_page = 10
+
+  def should_confirm_only_numeric?
+    return true if self.survey.question_type == "Numeric"
+  end
+
 end

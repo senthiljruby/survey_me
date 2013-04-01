@@ -14,9 +14,9 @@ class Question < ActiveRecord::Base
   
   belongs_to :survey
   has_many :responses
-  has_many :answers
+  # has_many :answers
 
-  accepts_nested_attributes_for :answers, allow_destroy: true
+  #accepts_nested_attributes_for :answers, allow_destroy: true
 
   validates :content, :presence => true
 

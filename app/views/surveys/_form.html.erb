@@ -1,16 +1,16 @@
 <%= form_for(@survey, :html => {:class => "form-signin"}) do |f| %>
-  <% if @survey.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
-
+  <% if @respones.errors.any? %>
+    <div class="alert">
+      <h4><%= pluralize(@respones.errors.count, "error") %> encountered:</h4>
       <ul>
-      <% @survey.errors.full_messages.each do |msg| %>
+      <% @respones.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
   <h2 class="form-signin-heading"><%= @survey.new_record? ? 'New' : 'Edit' %> Survey</h2>
+  <%= hidden_field_tag :question_type, params[:question_type] %>
 	<div>
     <%= f.label :name, "Survey Name" %>
     <%= f.text_field :name, :class => "input-block-level"  %>
@@ -19,9 +19,8 @@
   <%= f.fields_for :questions do |builder| %>  
 		<%= render 'question_fields', f: builder %>
 	<% end %>
-	<%= link_to_add_fields "Add Question", f, :questions %>
-  <br/><br/>
   <div class="actions">
+    <%= link_to_add_fields "Add Question", f, :questions %>
     <%= f.submit @survey.new_record? ? 'Create Survey' : 'Update Survey', :class => "btn btn-primary"%>
   </div>
 <% end %>

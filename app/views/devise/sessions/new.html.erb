@@ -1,19 +1,25 @@
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), 
                        :html => {:class => "form-signin"}) do |f| %>
-
   <h2 class="form-signin-heading">Login</h2>
-
-  <%= f.text_field :screen_name, :class => "input-block-level", :placeholder => "Screen Name" %>
-  <%= f.password_field :password, :class => "input-block-level", :placeholder => "Password" %>
-
-  <% if devise_mapping.rememberable? -%>
-    <div>
-      <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+  <div class="control-group">
+    <label class="control-label" for="user_screen_name">Screen Name</label>
+    <div class="controls">
+      <%= f.text_field :screen_name, :class => "input-block-level", :placeholder => "Screen Name" %>
     </div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in",  :class => "btn btn-primary" %></div>
-  <div>
-    <%= render "devise/shared/links" %>
   </div>
+  <div class="control-group">
+    <label class="control-label" for="user_password">Password</label>
+    <div class="controls">
+      <%= f.password_field :password, :class => "input-block-level", :placeholder => "Password" %>
+    </div>
+    <% if devise_mapping.rememberable? -%>
+      <div class="control-group">
+        <div class="controls">
+          <label class="checkbox">
+            <%= f.check_box :remember_me %> Remember Me
+          </label>
+          <%= f.submit "Sign in",  :class => "btn btn-primary" %>
+        </div>
+      </div>
+    <% end -%> 
 <% end %> 

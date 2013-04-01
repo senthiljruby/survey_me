@@ -1,21 +1,23 @@
-<table class="table table-bordered table-striped">
- <thead>
-    <tr>
-      <th>Survey Taker</th>
-      <th>Question</th>
-      <th>Survey Taker's answer</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @surveys.each do |survey| %>
-      <% survey.responses.each do |response| %>
-        <tr>
-          <td><%= response.user.screen_name %></td>
-          <td><%= response.question.content %></td>
-          <td><%= response.user_answer %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @surveys %>
+<% if @responses.blank? %>
+  <p class="alert">No Survey has been taken by User yet !!!</p>
+<% else %>
+  <table class="table table-bordered table-striped">
+   <thead>
+      <tr>
+        <th>Survey Taker</th>
+        <th>Question</th>
+        <th>Survey Taker's answer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @responses.sort_by(&:question).each do |response| %>
+          <tr>
+            <td><%= response.user.screen_name %></td>
+            <td><%= response.question.content %></td>
+            <td><%= response.user_answer %></td>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @responses %>
+<% end %>

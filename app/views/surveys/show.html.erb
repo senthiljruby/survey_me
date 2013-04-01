@@ -1,21 +1,19 @@
-<p id="notice"><%= notice %></p>
-<%= form_tag "/surveys/1/survey_response", :class => 'form-signin' %>
+<%= form_tag survey_response_survey_path(@survey), :class => 'form-signin' %>
   <h2 class="form-signin-heading">Survey: <%= @survey.name %></h2>
   <div>
   <% flag_id = 1 %>
   <% @survey.questions.each do |question| %>
     <strong><u>Question # <%= flag_id %></u></strong><br />
     <%= raw question.content %> <br /> <br />
-    <% flag_answer_id = 1 %>
-    <% question.answers.each do |answer| %>
-      <strong><u>Answer # <%= flag_answer_id %></u></strong> <br />
-      <%= raw answer.content %><br />
-      <% flag_answer_id += 1 %>
-    <% end %><br/>
     <%= hidden_field_tag "question_ids[]", question.id %>
     <%= label "user_answers", "Your Answer" %>
-    <%= select_tag "user_answers[]", options_for_select(question.answers.map(&:content)), 
-                                  :class => "input-block-level"  %><br/>
+    <% if @survey.question_type == 'Essay' %>
+      <%= text_area_tag "user_answers[]", :rows => '10', :class => "input-block-level"  %><br/> 
+    <% elsif @survey.question_type == 'Numeric' %>
+      <%= text_field_tag "user_answers[]", nil, :class => "input-block-level numeric", :id => "users_answers_#{question.id}"  %><br/>
+    <% else %>
+      <%= text_field_tag "user_answers[]", nil, :id => "question_name", "data-date-format" => "mm/dd/yy", :value=>"02/16/12", :class => "span2 question_name" %><br/><br/> 
+    <% end %>
     <% flag_id += 1 %>
   <% end %>
   <%= submit_tag 'Save', :class=> "btn btn-small btn-success" %>
@@ -23,3 +21,8 @@
 <%= link_to 'Back', surveys_path %>
 </form>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.question_name').datepicker();
+  });
+</script>

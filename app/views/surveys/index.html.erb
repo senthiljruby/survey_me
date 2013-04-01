@@ -1,6 +1,6 @@
 <p class="pull-right">
   <% if current_user && current_user.admin? %>
-    <%= link_to "New Survey", new_survey_path, :class => "btn btn-primary" %>
+    <%= link_to "New Survey", new_survey_path, :class => "btn btn-info" %>
   <% end %>
 </p>
 <br/><br/>
@@ -29,8 +29,8 @@
           <td><%= survey.name %></td>
           <td><%= link_to 'Take a survey', survey_path(survey), :class => "btn btn-small btn-success" %></td>
           <% if current_user && current_user.admin? %>
-            <td><%= link_to 'Edit', edit_survey_path(survey), :class => "btn btn-small btn-success" %></td>
-            <td><%= link_to 'Destroy', survey, confirm: 'Are you sure?', method: :delete, :class => "btn btn-small btn-success" %></td>
+            <td><%= link_to 'Edit', edit_survey_path(survey), :class => "btn btn-small btn-inverse" %></td>
+            <td><%= link_to 'Destroy', survey, confirm: 'Are you sure?', method: :delete, :class => "btn btn-small btn-danger" %></td>
           <% end %>
         </tr>
       <% end %>

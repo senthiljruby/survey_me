@@ -22,10 +22,11 @@ class SurveysController < ApplicationController
 
   def create
     @survey = current_user.surveys.new(params[:survey])
+    @question_type = params[:question_type]
     if @survey.save
       redirect_to surveys_path, notice: 'Survey was successfully created.'
     else
-      render action: "new"
+      render action: 'new'
     end
   end
 
@@ -48,13 +49,19 @@ class SurveysController < ApplicationController
     @survey = Survey.find(params[:id])
     @question = params[:question_ids]
     @user_answer = params[:user_answers]
+    responses = []
     @question.each_with_index do |question, key|
       @response = current_user.responses.create(:survey_id => @survey.id, :question_id => question, :user_answer => @user_answer[key])
+      responses << @response.errors.full_messages
     end
-    redirect_to root_path, notice: 'Survey was successfully completed.'
+    if responses.flatten.empty?
+      redirect_to root_path, notice: 'Survey was successfully completed.'
+    else
+      redirect_to survey_path(@survey), notice: "#{responses.flatten.join('<br />')}".html_safe
+    end
   end
 
   def results
-    @surveys = Survey.paginate :page => params[:page], :order => "created_at DESC"    
+    @responses = Response.paginate :page => params[:page], :order => "created_at DESC"    
   end
 end

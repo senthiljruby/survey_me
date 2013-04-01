@@ -7,22 +7,5 @@
   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <br/><br/>
-
-  <p class="lead">Latest Survey online</p>
-  <% if @surveys.blank? %>
-    <p class="alert">No Survey Created Yet</p>
-  <% else %>
-    <table class="table table-bordered table-striped">
-      <tbody>
-        <% @surveys.each do |survey| %>
-          <tr>
-            <td><%= survey.user.screen_name %></td>
-            <td><%= survey.question_type %></td>
-            <td><%= survey.name %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
   <%= link_to "Take a Survey", surveys_path, :class => "btn btn-large btn-success" %>
 </div>
