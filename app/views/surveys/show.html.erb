@@ -8,7 +8,7 @@
     <%= hidden_field_tag "question_ids[]", question.id %>
     <%= label "user_answers", "Your Answer" %>
     <% if @survey.question_type == 'Essay' %>
-      <%= text_area_tag "user_answers[]", :rows => '10', :class => "input-block-level"  %><br/> 
+      <%= text_area_tag "user_answers[]", nil, :rows => '10', :class => "input-block-level"  %><br/> 
     <% elsif @survey.question_type == 'Numeric' %>
       <%= text_field_tag "user_answers[]", nil, :class => "input-block-level numeric", :id => "users_answers_#{question.id}"  %><br/>
     <% else %>
