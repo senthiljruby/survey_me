@@ -14,8 +14,15 @@
 	<div>
     <%= f.label :name, "Survey Name" %>
     <%= f.text_field :name, :class => "input-block-level"  %>
-	</div>	
+	</div>
   <%= f.hidden_field :question_type, :value => @question_type,  :class=>"input-block-level" %>
+  <div>
+    <fieldset>
+      <%= label "survey_questions_attributes_#{@survey.object_id}_content", Question %>
+      <%= text_area_tag "survey_questions_attributes_#{@survey.object_id}_content", nil, :class =>"input-block-level", :rows => "10", :cols => "40" %>
+      <br>
+    </fieldset>
+  </div>
   <%= f.fields_for :questions do |builder| %>  
 		<%= render 'question_fields', f: builder %>
 	<% end %>
