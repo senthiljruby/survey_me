@@ -12,7 +12,7 @@
     <% elsif @survey.question_type == 'Numeric' %>
       <%= text_field_tag "user_answers[]", nil, :class => "input-block-level numeric", :id => "users_answers_#{question.id}"  %><br/>
     <% else %>
-      <%= text_field_tag "user_answers[]", nil, :id => "question_name", "data-date-format" => "mm/dd/yy", :value=>"02/16/12", :class => "span2 question_name" %><br/><br/> 
+      <%= text_field_tag "user_answers[]", nil, :id => "question_name", "data-date-format" => "dd/mm/yy", :value=>"02/16/12", :class => "span2 question_name" %><br/><br/> 
     <% end %>
     <% flag_id += 1 %>
   <% end %>

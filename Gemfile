@@ -4,6 +4,7 @@ gem 'rails', '3.2.10'
 gem 'mysql2'
 gem 'pg'
 gem 'annotate'
+gem 'validates_timeliness', '~> 3.0'
 
 # User Authentication Engine
 gem 'devise'
