@@ -5,7 +5,8 @@ class SurveysControllerTest < ActionController::TestCase
   setup do
     @survey = surveys(:survey_one)
     @question = questions(:question_one)
-    @first_answer = answers(:answer_one)
+    # @response = responses(:response_one)
+    @responses = Response.all
     @admin = users(:admin)
     @user = users(:user)
   end
@@ -60,7 +61,7 @@ class SurveysControllerTest < ActionController::TestCase
   test 'should store survey response' do
     sign_in users(:admin)
     post :update, id: @survey, question_ids: [@question.content],
-                               user_answers: [@answer.content]
+                               user_answers: ['Sample']
     assert_redirected_to surveys_path
   end
 
@@ -68,6 +69,6 @@ class SurveysControllerTest < ActionController::TestCase
     sign_in users(:admin)
     get :results
     assert_response :success
-    assert_not_nil assigns(:surveys)
+    assert_not_nil assigns(:responses)
   end
 end

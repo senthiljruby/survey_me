@@ -1,9 +1,9 @@
 <%= form_for(@survey, :html => {:class => "form-signin"}) do |f| %>
-  <% if @respones.errors.any? %>
+  <% if @survey.errors.any? %>
     <div class="alert">
-      <h4><%= pluralize(@respones.errors.count, "error") %> encountered:</h4>
+      <h4><%= pluralize(@survey.errors.count, "error") %> encountered:</h4>
       <ul>
-      <% @respones.errors.full_messages.each do |msg| %>
+      <% @survey.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

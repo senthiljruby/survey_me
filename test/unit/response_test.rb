@@ -17,6 +17,8 @@ class ResponseTest < ActiveSupport::TestCase
   setup do
     @admin = users(:admin)
     @user = users(:user)
+    @survey = surveys(:survey_one)
+    @numeric_survey = surveys(:survey_two)
   end
 
   test "the truth" do
@@ -24,8 +26,16 @@ class ResponseTest < ActiveSupport::TestCase
   end
 
   test 'presence validation' do
-    response = Response.new
+    response = @survey.responses.new
     assert !response.save
     assert response.errors[:user_answer].include?("can't be blank")
   end
+
+  test 'numerically validation' do
+    response = @numeric_survey.responses.new
+    response.user_answer = "sample"
+    assert !response.save
+    response.errors[:user_answer].include?('is not a number')
+  end
+
 end

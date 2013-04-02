@@ -5,7 +5,6 @@ class SurveysControllerTest < ActionController::TestCase
   setup do
     @survey = surveys(:survey_one)
     @question = questions(:question_one)
-    @answer = answers(:answer_one)
     @admin = users(:admin)
     @user = users(:user)
   end

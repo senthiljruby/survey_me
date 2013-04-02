@@ -13,4 +13,4 @@
 
 question_one:
   content: which of the following have you purchased in the past 3 months
-  survey_id: 1
+  survey: survey_one

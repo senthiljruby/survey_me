@@ -14,11 +14,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  question_id: 1
-  user_answer: MyString
-  user_id: 1
+  question: question_one
+  user_answer: "Great"
+  user: user
+  survey: survey_one
 
 two:
-  question_id: 1
-  user_answer: MyString
-  user_id: 1
+  question: question_one
+  user_answer: "First Answer"
+  user: user
+  survey: survey_one

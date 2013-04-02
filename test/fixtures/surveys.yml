@@ -16,3 +16,8 @@ survey_one:
   name: Employee Survey
   user: admin
   question_type: Essay
+
+survey_two:
+  name: Statics
+  user: admin
+  question_type: Numeric

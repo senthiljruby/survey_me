@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130331031851) do
 
-  create_table "answers", :force => true do |t|
-    t.text     "content"
-    t.integer  "question_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "questions", :force => true do |t|
     t.text     "content"
     t.integer  "survey_id"
