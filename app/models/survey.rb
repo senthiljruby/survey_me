@@ -19,6 +19,8 @@ class Survey < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :question_type, :presence => true
-  
+  validates :questions, :presence => true
+
   self.per_page = 10
+
 end

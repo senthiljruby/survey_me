@@ -13,6 +13,7 @@ class SurveysController < ApplicationController
   def new
     @question_type = params[:question_type]
     @survey = current_user.surveys.new
+    @question = @survey.questions.new
   end
 
   def edit
