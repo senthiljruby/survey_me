@@ -24,11 +24,12 @@
           <td><%= survey.question_type %></td>
           <td><%= survey.name %></td>
           <td>
-            <%= link_to 'Take a survey', survey_path(survey), :id => "take_survey_#{survey.id}", :class => "btn btn-small btn-success" %>
             <% if current_user && current_user.admin? %>
               <%= link_to 'Edit', edit_survey_path(survey), :id => "edit_survey_#{survey.id}", :class => "btn btn-small btn-inverse" %>
               <%= link_to 'Delete', survey, confirm: 'Are you sure?', method: :delete, :id => "delete_survey_#{survey.id}", :class => "btn btn-small btn-danger" %>
               <%= link_to 'Results', results_surveys_path(:id => survey), :id => "survey_results_#{survey.id}", :class => "btn btn-small btn-primary" %>
+            <% else %>
+              <%= link_to 'Take a survey', survey_path(survey), :id => "take_survey_#{survey.id}", :class => "btn btn-small btn-success" %>
             <% end %>
           </td>
         </tr>
