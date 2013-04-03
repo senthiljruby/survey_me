@@ -20,11 +20,11 @@ class LoginTest < ActionDispatch::IntegrationTest
     within('.masthead') do
       click_link 'Survey'
     end
-    find("td:contains('#{@survey.name}')")
-    # find("td:contains('#{@survey.question_type}')")
-    # find("td:contains('#{@survey.user.screen_name}')")
-    find("td:contains('Take a survey')")
-    find("td:contains('Edit')")
-    find("td:contains('Delete')")
+    find("td[0]:contains('#{@survey.name}')")
+    find("td[0]:contains('#{@survey.question_type}')")
+    find("td[0]:contains('#{@survey.user.screen_name}')")
+    find("td[0]:contains('Take a survey')")
+    find("td[0]:contains('Edit')")
+    find("td[0]:contains('Delete')")
   end
 end

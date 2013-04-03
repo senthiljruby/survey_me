@@ -15,6 +15,3 @@
 //= require twitter/bootstrap
 //= require bootstrap-datepicker.js
 //= require_tree .
-
-
-$(".alert").alert();

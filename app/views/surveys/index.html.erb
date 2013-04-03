@@ -14,11 +14,7 @@
           <th>Surveyer</th>
           <th>Question Type</th>
           <th>Survey Name</th>
-          <th>#</th>
-          <% if current_user && current_user.admin? %>
-            <th>#</th>
-            <th>#</th>
-          <% end %>
+          <th>Actions</th>
         </tr>
       </thead>
     <tbody>
@@ -27,11 +23,14 @@
           <td><%= survey.user.screen_name %></td>
           <td><%= survey.question_type %></td>
           <td><%= survey.name %></td>
-          <td><%= link_to 'Take a survey', survey_path(survey), :class => "btn btn-small btn-success" %></td>
-          <% if current_user && current_user.admin? %>
-            <td><%= link_to 'Edit', edit_survey_path(survey), :class => "btn btn-small btn-inverse" %></td>
-            <td><%= link_to 'Destroy', survey, confirm: 'Are you sure?', method: :delete, :class => "btn btn-small btn-danger" %></td>
-          <% end %>
+          <td>
+            <%= link_to 'Take a survey', survey_path(survey), :class => "btn btn-small btn-success" %>
+            <% if current_user && current_user.admin? %>
+              <%= link_to 'Edit', edit_survey_path(survey), :class => "btn btn-small btn-inverse" %>
+              <%= link_to 'Destroy', survey, confirm: 'Are you sure?', method: :delete, :class => "btn btn-small btn-danger" %>
+              <%= link_to 'Results', results_surveys_path(:id => survey), :class => "btn btn-small btn-primary" %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

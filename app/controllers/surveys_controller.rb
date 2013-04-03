@@ -1,13 +1,13 @@
 class SurveysController < ApplicationController
   before_filter :authenticate_user!, :except => ['index']
   before_filter :admin_only, :except => ['index', 'show', 'survey_response']
+  before_filter :load_survey, :only => ['show', 'destroy', 'survey_response', 'results']
 
   def index
-    @surveys = Survey.paginate :page => params[:page], :order => "created_at DESC"
+    @surveys = Survey.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def show
-    @survey = Survey.find(params[:id])
   end
 
   def new
@@ -36,18 +36,16 @@ class SurveysController < ApplicationController
     if @survey.update_attributes(params[:survey])
       redirect_to surveys_path, notice: 'Survey was successfully updated.'
     else
-      render action: "edit"
+      render action: 'edit'
     end
   end
 
   def destroy
-    @survey = Survey.find(params[:id])
     @survey.destroy
     redirect_to surveys_url
   end
 
   def survey_response
-    @survey = Survey.find(params[:id])
     @question = params[:question_ids]
     @user_answer = params[:user_answers]
     responses = []
@@ -58,11 +56,16 @@ class SurveysController < ApplicationController
     if responses.flatten.empty?
       redirect_to root_path, notice: 'Survey was successfully completed.'
     else
-      redirect_to survey_path(@survey), notice: "#{responses.flatten.join('<br />')}".html_safe
+      redirect_to survey_path(@survey), notice: "#{responses.uniq.flatten.join('<br />')}".html_safe
     end
   end
 
   def results
-    @responses = Response.paginate :page => params[:page], :order => "created_at DESC"    
+    @responses = @survey.responses.paginate :page => params[:page], :order => 'created_at DESC'
+  end
+
+  private
+  def load_survey
+    @survey = Survey.find(params[:id])    
   end
 end

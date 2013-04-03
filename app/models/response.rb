@@ -31,5 +31,4 @@ class Response < ActiveRecord::Base
   def should_confirm_only_date?
     return true if self.survey.question_type == "Date"
   end
-
 end

@@ -2,9 +2,6 @@
   <ul class="nav nav-pills pull-right">
     <li class="<%= menu_list('home') %>"><%= link_to "Home", root_path %></li>
     <li class="<%= menu_list('survey') %>"><%= link_to "Survey", surveys_path %></li>
-    <% if (!current_user.blank? && current_user.admin?) %>
-      <li class="<%= menu_list('results') %>"><%= link_to "Results", results_surveys_path %></li>
-    <% end %>
   </ul>
   <%= link_to image_tag("logo.png"), root_path %>
 </div>

@@ -5,7 +5,6 @@ class SurveysControllerTest < ActionController::TestCase
   setup do
     @survey = surveys(:survey_one)
     @question = questions(:question_one)
-    # @response = responses(:response_one)
     @responses = Response.all
     @admin = users(:admin)
     @user = users(:user)
@@ -26,7 +25,7 @@ class SurveysControllerTest < ActionController::TestCase
   test "should create survey" do
     sign_in users(:admin)
     assert_difference('Survey.count') do
-      post :create, survey: { name: @survey.name, question_type: @survey.question_type, user_id: @admin.id }
+      post :create, survey: { name: @survey.name, question_type: @survey.question_type, user_id: @admin.id, questions_attributes: [{:content => @question.content}]}
     end
 
     assert_redirected_to surveys_path
@@ -67,7 +66,7 @@ class SurveysControllerTest < ActionController::TestCase
 
   test 'should display results' do
     sign_in users(:admin)
-    get :results
+    get :results, id: @survey
     assert_response :success
     assert_not_nil assigns(:responses)
   end

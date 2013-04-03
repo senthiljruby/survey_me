@@ -26,6 +26,7 @@ class SurveyTest < ActiveSupport::TestCase
     survey = Survey.new
     assert !survey.save
     assert survey.errors[:name].include?("can't be blank")
+    assert survey.errors[:questions].include?("can't be blank")
     assert survey.errors[:question_type].include?("can't be blank")
   end
 end
