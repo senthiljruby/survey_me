@@ -17,7 +17,6 @@ class AdminTest < ActionDispatch::IntegrationTest
     assert has_content?(surveys(:survey_one).name)
     assert has_content?(surveys(:survey_one).question_type)
     assert has_content?(surveys(:survey_one).user.screen_name)
-    assert has_content?('Take a survey')
     assert has_content?('Edit')
     assert has_content?('Delete')
     assert has_content?('Results')

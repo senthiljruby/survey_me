@@ -13,15 +13,6 @@
 require 'test_helper'
 
 class SurveyTest < ActiveSupport::TestCase
-  setup do
-    @admin = users(:admin)
-    @user = users(:user)
-  end
-
-  test "the truth" do
-    assert true
-  end
-
   test 'presence validation' do
     survey = Survey.new
     assert !survey.save

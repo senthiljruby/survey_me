@@ -15,15 +15,10 @@ require 'test_helper'
 
 class ResponseTest < ActiveSupport::TestCase
   setup do
-    @admin = users(:admin)
-    @user = users(:user)
     @survey = surveys(:survey_one)
     @numeric_survey = surveys(:survey_two)
   end
 
-  test "the truth" do
-    assert true
-  end
 
   test 'presence validation' do
     response = @survey.responses.new
