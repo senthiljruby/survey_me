@@ -618,8 +618,6 @@
         null,
         0,
         null,
-        0,
-        null,
         null
       ],
       "F:/test_work/survey/app/helpers/surveys_helper.rb": [
@@ -944,7 +942,7 @@
         null
       ]
     },
-    "timestamp": 1364987375
+    "timestamp": 1364988176
   },
   "Functional Tests": {
     "coverage": {
@@ -1563,8 +1561,6 @@
         null,
         6,
         null,
-        0,
-        null,
         12,
         null,
         null
@@ -1815,7 +1811,7 @@
         null
       ]
     },
-    "timestamp": 1364987395
+    "timestamp": 1364988196
   },
   "Integration Tests": {
     "coverage": {
@@ -2392,7 +2388,7 @@
         1,
         null,
         1,
-        96,
+        97,
         null,
         null
       ],
@@ -2404,11 +2400,11 @@
         null,
         1,
         1,
-        18,
+        19,
         18,
         null,
-        0,
-        0,
+        1,
+        1,
         null,
         null,
         null
@@ -2426,17 +2422,15 @@
         null,
         null,
         1,
-        256,
-        256,
-        256,
+        264,
+        264,
+        264,
         null,
-        128,
+        132,
         null,
-        128,
+        132,
         null,
-        0,
-        null,
-        256,
+        264,
         null,
         null
       ],
@@ -2785,10 +2779,10 @@
         null,
         1,
         1,
-        5,
-        5,
-        5,
-        5,
+        6,
+        6,
+        6,
+        6,
         null,
         null,
         1,
@@ -2854,17 +2848,23 @@
         null,
         null,
         1,
-        5,
-        5,
-        5,
+        1,
+        1,
+        1,
         null,
-        5,
-        5,
-        5,
+        null,
+        1,
+        6,
+        6,
+        6,
+        null,
+        6,
+        6,
+        6,
         null,
         null
       ]
     },
-    "timestamp": 1364987573
+    "timestamp": 1364988376
   }
 }

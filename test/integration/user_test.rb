@@ -70,6 +70,12 @@ class UserTest < ActionDispatch::IntegrationTest
     find('#flash_notice:contains("User answer is not a valid date")')
   end
 
+  test 'access denied' do
+    login_as_user
+    visit new_survey_path
+    find('#flash_notice:contains("You are not authorized to view this content, please login as Admin")')
+  end
+
   def login_as_user
     visit root_path
     within('.container') do

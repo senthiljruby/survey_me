@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     if current_user && current_user.admin?
       return true
     else
-      flash[:notice] = 'You are not authorized to view this content,please login as Admin'
+      flash[:notice] = 'You are not authorized to view this content, please login as Admin'
       redirect_to root_path
     end
   end

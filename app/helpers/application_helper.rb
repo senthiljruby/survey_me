@@ -17,8 +17,6 @@ module ApplicationHelper
                 controller == 'home' && (action == 'index')
               when 'survey'
                 controller == 'surveys' && (action != 'results')
-              when 'results'
-                controller == 'surveys' && (action == 'results')
              end
     'active' if active
   end
