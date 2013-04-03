@@ -21,3 +21,8 @@ survey_two:
   name: Statics
   user: admin
   question_type: Numeric
+
+survey_three:
+  name: Statics
+  user: admin
+  question_type: Date

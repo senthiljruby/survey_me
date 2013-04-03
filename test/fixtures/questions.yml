@@ -12,5 +12,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 question_one:
-  content: which of the following have you purchased in the past 3 months
+  content: what have you purchased in the past 3 months?
   survey: survey_one
+
+question_two:
+  content: What is your favorite number?
+  survey: survey_two
+
+question_three:
+  content: What is your date of birth?
+  survey: survey_three
